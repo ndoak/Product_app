@@ -1,8 +1,9 @@
 'use strict';
 
 module.exports = function(app) {
+	var categories = require('../../app/controllers/categories.server.controller');
+
 	app.route('/categories')
-		.get(function (request, response) {
-			response.json([{ name: 'Beverages' }, { name: 'Condiments' }]);
-		});
+	  .get(categories.list)
+	  .post(categories.create);
 };
